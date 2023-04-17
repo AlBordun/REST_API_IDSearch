@@ -14,18 +14,53 @@
 
 # Q, Z || Ф, Щ, Ъ – 10 очков.
 
-import re
+# import re
 
-word = input().upper()
+# word = input('Введите слово ').upper()
+# dct = {
+#     "[AEIOULNSTRАВЕИНОРСТ]": "1",
+#     "[DGДКЛМПУ]": "2",
+#     "[BCMPБГЁЬЯ]": "3",
+#     "[FHVWYЙЫ]": "4",
+#     "[KЖЗХЦЧ]": "5",
+#     "[JXШЭЮ]": "8",
+#     "[QZФЩЪ]": "10",
+# }
+# for key in dct:
+#     word = re.sub(key, dct[key], word)
+# print(sum(map(int, word)))
+
+# word = input('Введите слово ').upper()
+# dct = {
+#     "[AEIOULNSTRАВЕИНОРСТ]": 1,
+#     "[DGДКЛМПУ]": 2,
+#     "[BCMPБГЁЬЯ]": 3,
+#     "[FHVWYЙЫ]": 4,
+#     "[KЖЗХЦЧ]": 5,
+#     "[JXШЭЮ]": 8,
+#     "[QZФЩЪ]": 10,
+# }
+# list = list(word)
+# print(list)
+# count= 0
+# for letter in word:
+#     for key, value in dct.items():
+#         if letter in key:
+#             count = count + value
+# print (count)
+
+
+word = input('Введите слово ').upper()
 dct = {
-    "[AEIOULNSTRАВЕИНОРСТ]": "1",
-    "[DGДКЛМПУ]": "2",
-    "[BCMPБГЁЬЯ]": "3",
-    "[FHVWYЙЫ]": "4",
-    "[KЖЗХЦЧ]": "5",
-    "[JXШЭЮ]": "8",
-    "[QZФЩЪ]": "10",
+    "[AEIOULNSTRАВЕИНОРСТ]": 1,
+    "[DGДКЛМПУ]": 2,
+    "[BCMPБГЁЬЯ]": 3,
+    "[FHVWYЙЫ]": 4,
+    "[KЖЗХЦЧ]": 5,
+    "[JXШЭЮ]": 8,
+    "[QZФЩЪ]": 10,
 }
-for key in dct:
-    word = re.sub(key, dct[key], word)
-print(sum(map(int, word)))
+list = list(word)
+print(list)
+
+print(sum([value for i in word for key, value in dct.items() if i in key]))

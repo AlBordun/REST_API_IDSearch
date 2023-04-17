@@ -20,20 +20,20 @@
 # print(A[index])
 
 
-# import random
+import random
 
-# n = int(input("количество элементов в массиве "))
-# A = [random.randint(0, 10) for i in range(n)]
-# B = []
-# print(A)
-# x = int(input("Число для сравнения: "))
-# if x < 0:
-#     x = abs(x)
-# for i in A:
-#     B.append(abs(x - i))
-# f = B.index(min(B))
+n = int(input("количество элементов в массиве "))
+A = [random.randint(0, 10) for i in range(n)]
+B = []
+print(A)
+x = int(input("Число для сравнения: "))
+if x < 0:
+    x = abs(x)
+for i in A:
+    B.append(abs(x - i))
+f = B.index(min(B))
 
-# print(A[f])
+print(A[f])
 
 
 # import random
@@ -48,13 +48,13 @@
 # print(m)
 
 
-import random
+# import random
 
-n = int(input("количество элементов в массиве "))
-A = [random.randint(0, 10) for i in range(n)]
-print(A)
-x = int(input("Число для сравнения: "))
-if x < 0:
-    x = abs(x)
-b=[abs(A[i]-x) for i in range(len(A))]
-print(A[b.index(min(b))])
+# n = int(input("количество элементов в массиве "))
+# A = [random.randint(0, 10) for i in range(n)]
+# print(A)
+# x = int(input("Число для сравнения: "))
+# if x < 0:
+#     x = abs(x)
+# b=[abs(A[i]-x) for i in range(len(A))]
+# print(A[b.index(min(b))])
