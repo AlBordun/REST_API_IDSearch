@@ -2,7 +2,7 @@ package VendingCoffeeMachine;
 
 public class HotDrinks extends Product {
 
-    int volume;
+    private int volume;
     ProductRange.HotDrinksRange type;
 
     public HotDrinks(String name, int price,int volume, ProductRange.HotDrinksRange type) throws Exception {
