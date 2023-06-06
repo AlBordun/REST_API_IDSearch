@@ -14,7 +14,7 @@ public class Market implements IMarketBehaviour, IQueueBehaviour, IReturnBehavio
 
     //    private List<IActorBehaviour> clients = new ArrayList<>();
     public Market() {
-        this.queue = new ArrayList<>();
+        this.queue = new ArrayList<IActorBehaviour>();
     }
 //    public void add1(IActorBehaviour client) {
 //        Market market = new Market();

@@ -1,22 +1,22 @@
 package OOP.Classes;
 
 import OOP.Interfaces.IActorBehaviour;
-import  OOP.Interfaces.IMarketBehaviour;
-import OOP.Classes.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class addClients {
-    private List<IActorBehaviour> clients = new ArrayList<>();
     Market market = new Market();
-//    public List<IActorBehaviour> getClientsList (IActorBehaviour actor){
-//        return clients;
+    public List<IActorBehaviour> clients = new ArrayList<>();
+//    public List<IActorBehaviour> getClientsList (){
+//        return this.clients;
 //    }
     /**
      * Append clients to acceptToMarket method.
      */
-
+//    public void addlient(IActorBehaviour clients){
+//        this.clients.add(clients);
+//    }
     public void add(IActorBehaviour actor) {
         for (IActorBehaviour client :
                 clients) {
