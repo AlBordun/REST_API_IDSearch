@@ -15,14 +15,14 @@ public class CompLogger implements iRunDescription {
     public ComplexNumber run(ComplexNumber a, ComplexNumber b) {
         ComplexNumber result = operation.run(a, b);
         System.out.println(
-                getDescription() + ": " + operation.getClass().getSimpleName() + " над комплексными числами " + a + " и " + b);
-        System.out.println("Результат операции: " + result);
+                getDescription() + ": " + operation.getClass().getSimpleName() + " on numbers " + a + " and " + b);
+        System.out.println("Operation Result: " + result);
         return result;
     }
 
     @Override
     public String getDescription() {
-        return "Выполняется операция";
+        return "Operation Proceed";
     }
 
 }
