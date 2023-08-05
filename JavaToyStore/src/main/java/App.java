@@ -78,22 +78,12 @@ public class App {
                         toyManager.addToyToStock(customtoy);
                         toyManager.getLotteryManager().addPrizeToy(customtoy);
                         // Вывод элементов очереди
-//                        System.out.println("Toys in queue:");
-//                        while (!toyManager.getLotteryQueue().isEmpty()) {
-//                            System.out.println(toyManager.getLotteryQueue());
-//                        }
+
                         break;
                     }
                 }
                 case 4 -> {
-//                    int input = 0;
-//                    System.out.println("write an id to delete");
-//                    input = sc.nextInt();
-//                    for (Toy toy : toyManager.getLotteryQueue()
-//                    ) {
-//                        toyManager.removeToyFromStock(input);
-//                    }
-//                    System.out.println("Updated queue: " + toyManager.getLotteryQueue());
+
                     System.out.print("Write an id for a toy to delete: ");
                     int id = sc.nextInt();
 
@@ -116,11 +106,7 @@ public class App {
                     } else {
                         System.out.println("Wrong input, try again...");
                     }
-//                    for (Toy toy : toyManager.getStorageStock()) {
-//                        if (toy != null || toyWeigth != 0) {
-//                            toy.setSelectionWeight(input);
-//                        }
-//                        toyManager.updateToyWeight(toy);
+
 //                    }
                     System.out.println("Updated queue: " + toyManager.getLotteryQueue());
                 }

@@ -41,30 +41,6 @@ public class LottaryManager {
 
         return null; // Возвращаем null, если ни одна игрушка не выпала
     }
-//        int totalWeight = 0;
-//        for (Toy toy : prizeToys) {
-//            totalWeight += toy.getSelectionWeight();
-//        }
-//
-//        Random rand = new Random();
-//        int randomWeight = rand.nextInt() * totalWeight;
-//
-//        Toy selectedToy = null;
-//        for (Toy toy : prizeToys) {
-//            randomWeight -= toy.getSelectionWeight();
-//            if (randomWeight <= 0) {
-//                selectedToy = toy;
-//                break;
-//            }
-//        }
-
-//        if (selectedToy != null) {
-//            prizeToys.remove(selectedToy);
-//                selectedToy.setQuantity(selectedToy.getQuantity()-1);
-//        }
-//
-//        return selectedToy;
-//    }
 
 }
 
