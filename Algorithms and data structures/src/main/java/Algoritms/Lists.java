@@ -3,7 +3,7 @@ package Algoritms;
 import java.util.Iterator;
 
 public class Lists {
-    public class Main {
+
         public static void main(String[] args) {
             SingleLinkList<List> List = new SingleLinkList<>();
 
@@ -19,8 +19,8 @@ public class Lists {
             List.reverse();
 
 
-            for (Object contact : List) {
-                System.out.println(contact);
+            for (Object list : List) {
+                System.out.println(list);
             }
         }
 
@@ -119,4 +119,4 @@ public class Lists {
             }
         }
     }
-}
+
