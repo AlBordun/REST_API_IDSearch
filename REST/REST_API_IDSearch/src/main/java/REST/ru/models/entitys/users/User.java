@@ -19,10 +19,9 @@ import static org.hibernate.engine.transaction.internal.jta.JtaStatusHelper.isAc
 @Table(name = "users")
 @Getter
 @Setter
-@ToString
+//@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class User  {
     @JsonProperty(value = "user_id")

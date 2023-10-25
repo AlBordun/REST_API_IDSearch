@@ -18,9 +18,9 @@ public class AuthRole {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
-    private Role name;
+    private RoleEnum name;
 
-    public AuthRole(Role name) {
+    public AuthRole(RoleEnum name) {
         this.name = name;
     }
 }

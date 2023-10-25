@@ -8,14 +8,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableWebSecurity
 @Configuration
 public class WebSecurityCustomizer {
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return  http
-                .authorizeHttpRequests()
-                .antMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/favicon.ico").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic()
-                .and().debug(true);
-    }
+//    @Bean
+//    public WebSecurityCustomizer webSecurityCustomizer() {
+//        return  http
+//                .authorizeHttpRequests()
+//                .antMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/favicon.ico").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .httpBasic()
+//                .and().debug(true);
+//    }
 }

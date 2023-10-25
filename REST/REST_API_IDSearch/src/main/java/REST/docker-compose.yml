@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  survey:
+    container_name: restapi1
+    hostname: restapi1
+    image: restapi1
+    ports:
+      - 8111:8111
+    entrypoint: [ "java", "-jar", "survey-0.0.1-SNAPSHOT.jar" ]
+    expose:
+      - 8111
+    environment:
+      - spring.datasource.url=jdbc:postgresql://restapi1-db:5432/restapi1
+    restart: always
+    links:
+      - restapi1-db
+  survey-db:
+    container_name: restapi1-db
+    hostname: restapi1-db
+    image: restapi1-db
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=restapi1
+    restart: always
