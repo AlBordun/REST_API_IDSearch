@@ -10,12 +10,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 public class WebSecurityCustomizer {
 //    @Bean
 //    public WebSecurityCustomizer webSecurityCustomizer() {
-//        return  http
+//        return  (web) -> web
 //                .authorizeHttpRequests()
-//                .antMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/favicon.ico").permitAll()
+//                .requestMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/favicon.ico").permitAll()
 //                .anyRequest().authenticated()
 //                .and()
 //                .httpBasic()
 //                .and().debug(true);
+//
 //    }
 }
