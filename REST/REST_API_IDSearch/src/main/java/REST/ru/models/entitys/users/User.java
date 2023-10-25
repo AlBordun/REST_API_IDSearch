@@ -19,11 +19,13 @@ import static org.hibernate.engine.transaction.internal.jta.JtaStatusHelper.isAc
 @Table(name = "users")
 @Getter
 @Setter
-//@ToString
+@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class User  {
+
     @JsonProperty(value = "user_id")
     @Id
     @SequenceGenerator(
@@ -63,15 +65,32 @@ public class User  {
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<AuthRole> authRoles;
+
+    @JsonProperty(value = "user_roles")
+    @JsonManagedReference
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<AuthRole> authRole = new HashSet<>();
+
+    public User(String email,
+                String username,
+                String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
 
     public boolean isNull() {
         return this.name == null || this.lastName == null || this.email == null;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(Id, name, lastName, email, password);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(Id, name, lastName, email, password);
+//    }
 
 }
