@@ -11,7 +11,6 @@ public class WebSecurityCustomizer {
 //    @Bean
 //    public WebSecurityCustomizer webSecurityCustomizer() {
 //        return  (web) -> web
-//                .authorizeHttpRequests()
 //                .requestMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/favicon.ico").permitAll()
 //                .anyRequest().authenticated()
 //                .and()

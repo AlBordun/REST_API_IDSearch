@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/restapi1db
-    username: your_username
-    password: your_password
+    username: postgres
+    password: admin
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

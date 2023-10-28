@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,7 +23,7 @@ import static org.hibernate.engine.transaction.internal.jta.JtaStatusHelper.isAc
 @Data
 
 @NoArgsConstructor
-@AllArgsConstructor
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class User  {
 
@@ -43,10 +44,10 @@ public class User  {
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "name", nullable = false, unique = false)
+    @Column(name = "name", nullable = true, unique = false)
     private String name;
 
-    @Column(name = "lastname", nullable = false, unique = false)
+    @Column(name = "lastname", nullable = true, unique = false)
     private String lastName;
 
     @JsonIgnore
@@ -67,14 +68,6 @@ public class User  {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<AuthRole> authRoles;
 
-    @JsonProperty(value = "user_roles")
-    @JsonManagedReference
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<AuthRole> authRole = new HashSet<>();
-
     public User(String email,
                 String username,
                 String password) {
@@ -83,7 +76,12 @@ public class User  {
         this.password = password;
     }
 
-
+    public User(
+                String username,
+                String password) {
+        this.username = username;
+        this.password = password;
+    }
     public boolean isNull() {
         return this.name == null || this.lastName == null || this.email == null;
     }

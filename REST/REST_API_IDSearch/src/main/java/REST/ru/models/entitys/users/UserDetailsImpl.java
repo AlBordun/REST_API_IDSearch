@@ -27,7 +27,7 @@ public class UserDetailsImpl implements UserDetails {
     public Collection<? extends GrantedAuthority> authorities;
 
     public static UserDetailsImpl build(User user){
-        List<GrantedAuthority> authorityList = user.getAuthRole().stream()
+        List<GrantedAuthority> authorityList = user.getAuthRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
 
         return new UserDetailsImpl(

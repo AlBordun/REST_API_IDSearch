@@ -124,7 +124,7 @@ public class AuthController {
                 }
             });
         }
-        user.setAuthRole(roles);
+        user.setAuthRoles(roles);
 
         // СОХРАНЕНИЕ
         User userDB = userRepository.save(user);

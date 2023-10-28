@@ -1,5 +1,9 @@
 package REST.ru.services;
 
+import REST.ru.config.WebSecurityConfig;
+import REST.ru.models.entitys.roles.AuthRole;
+import REST.ru.models.entitys.roles.AuthRoleRepository;
+import REST.ru.models.entitys.roles.RoleEnum;
 import REST.ru.models.entitys.users.User;
 import REST.ru.models.entitys.users.UserRepository;
 import lombok.AllArgsConstructor;
@@ -15,16 +19,37 @@ import java.util.*;
 @Service
 public class UserServiceImpl {
 
-    final PasswordEncoder passwordEncoder;
-    final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final AuthRoleRepository authRoleRepository;
+    private final WebSecurityConfig webSecurityConfig;
 
 
-//    public UserServiceImpl(@Autowired PasswordEncoder passwordEncoder,
+    //    public UserServiceImpl(@Autowired PasswordEncoder passwordEncoder,
 //                           @Autowired UserRepository userRepository) {
 //        this.passwordEncoder = passwordEncoder;
 //        this.userRepository = userRepository;
 //
 //    }
+    public void createAdminUser() {
+        if (userRepository.findByUsername("admin").isEmpty()) {
+            User admin = new User();
+            admin.setId(1);
+            admin.setEmail("admin");
+            admin.setUsername("admin");
+            admin.setPassword(webSecurityConfig.passwordEncoder().encode("admin")); // в реальном приложении пароль должен быть зашифрован
+            AuthRole adminRole = authRoleRepository.findByName(RoleEnum.ROLE_ADMIN)
+                    .orElseGet(() -> {
+                        AuthRole newRole = new AuthRole();
+                        newRole.setName(RoleEnum.ROLE_ADMIN);
+                        return authRoleRepository.save(newRole);
+                    });
+
+            admin.setAuthRoles(Set.of(adminRole));
+            userRepository.save(admin);
+
+        }
+    }
 
     public User findById(long userId) {
         return userRepository.findById(userId).orElseThrow(()
@@ -40,7 +65,7 @@ public class UserServiceImpl {
     }
 
     public void delete(long id) {
-
+        userRepository.deleteById(id);
     }
 
 
